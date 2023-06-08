@@ -1,25 +1,20 @@
 //import org.jetbrains.annotations.NotNull;
 
 public class Female extends Person {
-    private boolean fertile;
+
     private boolean isPregnant;
     private final String maidenName;
 
     public Female(String fName, String sName, int age) {
         super(fName, sName, age);
         this.personGender = Gender.FEMALE;
-        this.fertile = true;
         this.isPregnant = false;
         this.maidenName = sName;
         System.out.printf("her age is %d.\n", this.getPersonAge());
     }
 
-    public void makeUnfertile(){
-        this.fertile = false;
-    }
-
     public void makePregnant( Male man){
-        if (man.isFertile() && this.fertile && !this.isPregnant){
+        if (man.isFertile() && this.isFertile() && !this.isPregnant){
             isPregnant = true;
             System.out.printf("%s is pregnant. The father is %s %s\n", this.getFirstName(), man.getFirstName(), man.getLastName());
         }

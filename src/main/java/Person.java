@@ -3,6 +3,7 @@ public abstract class Person {
     private String lastName;
     private int personAge;
     private Person partner;
+    private boolean isFertile;
     protected Gender personGender;
 
     private static final int MALE_RETIREMENT_AGE = 65;
@@ -13,6 +14,7 @@ public abstract class Person {
         this.lastName = sName;
         this.personAge = age;
         this.partner = null;
+        this.isFertile = true;
         System.out.printf("This is %s %s ", fName, sName);
     }
 
@@ -24,8 +26,8 @@ public abstract class Person {
         return personAge;
     }
 
-    public String getPartner() {
-        return "%s %s".formatted(partner.firstName, partner.lastName);
+    public Person getPartner() {
+        return this.partner;
     }
 
     public String getFirstName() {
@@ -46,6 +48,7 @@ public abstract class Person {
 
     public void setPartner(Person newPartner) {
         this.partner = newPartner;
+        newPartner.partner = this;
         System.out.printf("%s has new partner %s /\n", this.getFirstName(), newPartner.getFirstName(), newPartner.getLastName());
     }
 
@@ -62,5 +65,13 @@ public abstract class Person {
         if (this.personGender.equals(Gender.MALE) && this.personAge >= MALE_RETIREMENT_AGE)
             return true;
         else return this.personGender.equals(Gender.FEMALE) && this.personAge >= FEMALE_RETIREMENT_AGE;
+    }
+
+    public boolean isFertile(){
+        return isFertile;
+    }
+
+    public void setInfertile(){
+        this.isFertile = false;
     }
 }

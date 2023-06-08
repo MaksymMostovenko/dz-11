@@ -33,11 +33,9 @@ Each person should have ability to tell about retirement.
 #7
 Female should be able to give a birth.
 
-#8
+#8p
 Female should be able to take husbands second name.
 
-#9
-Female should be able to be pregnant.
 
 #10
 Female should be able to take maiden name.

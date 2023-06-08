@@ -1,6 +1,111 @@
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
 public class TestPerson {
-    public Person testMaleOBject = new Male("testFistName", "testSecondName", 18);
-    public Person testFealeObject = new Female("testFistName", "testSecondName", 18);
+    @Test
+    public void testPersonGengerFemale() {
+        Person testFemaleObject = new Female("testFistName", "testSecondName", 18);
+        Assert.assertEquals(testFemaleObject.personGender, Gender.FEMALE, "Req#1 Failed. Fem wrong gender");
 
+    }
 
+    @Test
+    public void testPersonGengerMale() {
+        Person testMaleOBject = new Male("testFistName", "testSecondName", 18);
+        Assert.assertEquals(testMaleOBject.personGender, Gender.MALE, "Req#1 Failed. Male wrong gender");
+
+    }
+
+    @Test
+    public void testMarriage(){
+        Female Natali = new Female("Natali", "Buzok", 16);
+        Male George = new Male("George", "Miller", 28);
+        Natali.setPartner(George);
+        Assert.assertNotNull(Natali.getPartner());
+        Assert.assertNotNull(George.getPartner());
+    }
+
+    @Test
+    public void testDivorce(){
+        /*
+        #4
+        Each person should have ability to break a marriage.
+         */
+
+        Female Natali = new Female("Natali", "Buzok", 16);
+        Male George = new Male("George", "Miller", 28);
+        Natali.setPartner(George);
+        George.divorce(Natali);
+        Assert.assertNull(Natali.getPartner());
+        Assert.assertNull(George.getPartner());
+    }
+
+    @Test
+    public void testRetirement(){
+        Male George = new Male("George", "Miller", 80);
+        Assert.assertTrue(George.isRetired());
+    }
+
+    @Test
+    public void testPregnancy(){
+        Female Natali = new Female("Natali", "Buzok", 16);
+        Male George = new Male("George", "Miller", 28);
+        Natali.makePregnant(George);
+        Assert.assertTrue(Natali.getPregnancy());
+    }
+
+    @Test
+    public void testBirth(){
+        Female Natali = new Female("Natali", "Buzok", 16);
+        Male George = new Male("George", "Miller", 28);
+        Natali.makePregnant(George);
+        Assert.assertNotNull(Natali.giveChild("childFName", "childSName", Gender.FEMALE));
+    }
+
+    @Test
+    public void testRegisterPartnership(){
+        Female Natali = new Female("Natali", "Buzok", 16);
+        Male George = new Male("George", "Miller", 28);
+        Natali.registerPartnership(George);
+        Assert.assertEquals(Natali.getLastName(), George.getLastName());
+    }
+
+    @Test
+    public void testFirstNameSetter(){
+        Person testFemaleObject = new Female("testFistName", "testSecondName", 18);
+        testFemaleObject.setFirstName("New_Name");
+        Assert.assertEquals(testFemaleObject.getFirstName(), "New_Name");
+    }
+
+    @Test
+    public void testLastNameSetter(){
+        Person testFemaleObject = new Female("testFistName", "testSecondName", 18);
+        testFemaleObject.setLastName("New_Name");
+        Assert.assertEquals(testFemaleObject.getLastName(), "New_Name");
+    }
+
+    @Test
+    public void testSetAge(){
+        Person testFemaleObject = new Female("testFistName", "testSecondName", 18);
+        testFemaleObject.setPersonAge(42);
+        Assert.assertEquals(testFemaleObject.getPersonAge(), 42);
+    }
+
+    @Test
+    public void testGetFirstName(){
+        Person testFemaleObject = new Female("testFistName", "testSecondName", 18);
+        Assert.assertEquals(testFemaleObject.getFirstName(), "testFistName");
+    }
+
+    @Test
+    public void testGetLastName(){
+        Person testFemaleObject = new Female("testFistName", "testSecondName", 18);
+        Assert.assertEquals(testFemaleObject.getLastName(), "testSecondName");
+    }
+
+    @Test
+    public void testGetAge(){
+        Person testFemaleObject = new Female("testFistName", "testSecondName", 18);
+        Assert.assertEquals(testFemaleObject.getPersonAge(), 18);
+    }
 }
