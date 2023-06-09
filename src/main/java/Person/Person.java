@@ -1,10 +1,12 @@
+package Person;
+
 public abstract class Person {
     private String firstName;
     private String lastName;
     private int personAge;
     private Person partner;
     private boolean isFertile;
-    protected Gender personGender;
+    public Gender personGender;
 
     private static final int MALE_RETIREMENT_AGE = 65;
     private static final int FEMALE_RETIREMENT_AGE = 60;
@@ -49,10 +51,10 @@ public abstract class Person {
     public void setPartner(Person newPartner) {
         this.partner = newPartner;
         newPartner.partner = this;
-        System.out.printf("%s has new partner %s /\n", this.getFirstName(), newPartner.getFirstName(), newPartner.getLastName());
+        System.out.printf("%s has new partner %s %s /\n", this.getFirstName(), newPartner.getFirstName(), newPartner.getLastName());
     }
 
-    protected void divorce(Person partner){
+    public void divorce(Person partner){
         this.partner = null;
         partner.partner = null;
     }

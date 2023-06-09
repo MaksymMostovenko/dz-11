@@ -12,10 +12,10 @@
 Requirements:
 
 #1
-There should be a two gengers Male and Female.
+There should be a two gengers Person.Male and Person.Female.
 
 #2
-Each Person should have next attributes:
+Each Person.Person should have next attributes:
     -> First name;
     -> last name;
     -> age;
@@ -31,29 +31,29 @@ Each person should have ability to break a marriage.
 Each person should have ability to tell about retirement.
 
 #7
-Female should be able to give a birth.
+Person.Female should be able to give a birth.
 
 #8p
-Female should be able to take husbands second name.
+Person.Female should be able to take husbands second name.
 
 
 #10
-Female should be able to take maiden name.
+Person.Female should be able to take maiden name.
 
 #11
 Each person should have ability to change its name.
 
 #12
-Female should be able to get pregnant.
+Person.Female should be able to get pregnant.
 
 #13
-Female may become infertile.
+Person.Female may become infertile.
 
 #14
-Male may become infertile.
+Person.Male may become infertile.
 
 #15
-Female may become pregnant if male is fertile, female is fertile and not pregnant.
+Person.Female may become pregnant if male is fertile, female is fertile and not pregnant.
 
 #16
 Newborn may be male or female.
